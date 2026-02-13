@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-bg: #0a0f0a;
+	--color-bg-card: #111a11;
+	--color-bg-elevated: #182018;
+	--color-surface: #1a2a1a;
+	--color-border: #2a3a2a;
+	--color-border-subtle: #1e2e1e;
+
+	--color-primary: #10b981;
+	--color-primary-dim: #059669;
+	--color-primary-glow: #10b98140;
+
+	--color-warm: #f59e0b;
+	--color-warm-dim: #d97706;
+	--color-warm-glow: #f59e0b40;
+
+	--color-danger: #ef4444;
+	--color-danger-dim: #dc2626;
+	--color-danger-glow: #ef444440;
+
+	--color-muted: #6b7280;
+	--color-muted-dim: #4b5563;
+
+	--color-text: #e5e7eb;
+	--color-text-dim: #9ca3af;
+	--color-text-bright: #f9fafb;
+
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-sans);
+	-webkit-tap-highlight-color: transparent;
+	overflow: hidden;
+}
+
+body {
+	min-height: 100dvh;
+	overscroll-behavior: none;
+}
+
+/* Noise texture overlay */
+.noise::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	opacity: 0.03;
+	pointer-events: none;
+	z-index: 50;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-repeat: repeat;
+	background-size: 256px 256px;
+}
