@@ -5,13 +5,16 @@
 	import CountButton from '$lib/components/CountButton.svelte';
 
 	const deckCount = $derived(Number(page.params.decks));
-	const session = createSession(deckCount);
+	const session = $derived(createSession(deckCount));
 </script>
 
 <div class="flex min-h-dvh flex-col">
 	<!-- Header -->
 	<header class="flex items-center justify-between px-4 pt-4 pb-2">
-		<a href="/" class="rounded-lg border border-border-subtle px-4 py-2 text-base text-text-dim transition-colors hover:text-primary active:scale-95">
+		<a
+			href="/"
+			class="rounded-lg border border-border-subtle px-4 py-2 text-base text-text-dim transition-colors hover:text-primary active:scale-95"
+		>
 			&larr; Exit
 		</a>
 		<span class="font-mono text-base text-text-dim">
@@ -49,16 +52,15 @@
 				<span class="font-mono text-sm text-text">{session.decksRemaining.toFixed(1)}</span>
 			</div>
 		</div>
-
 	</div>
 
 	<!-- Undo + Count buttons -->
-	<div class="flex flex-col gap-3 px-4 pb-8 pt-4">
+	<div class="flex flex-col gap-3 px-4 pt-4 pb-8">
 		<button
 			type="button"
 			onclick={() => session.undo()}
 			disabled={!session.canUndo}
-			class="w-full rounded-2xl border border-border-subtle bg-bg-elevated py-3 text-base text-text-dim transition-all hover:text-primary disabled:opacity-30 active:scale-95"
+			class="w-full rounded-2xl border border-border-subtle bg-bg-elevated py-3 text-base text-text-dim transition-all hover:text-primary active:scale-95 disabled:opacity-30"
 		>
 			Undo
 		</button>
