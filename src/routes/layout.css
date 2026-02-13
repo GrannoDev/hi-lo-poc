@@ -36,7 +36,13 @@ html {
 	color: var(--color-text);
 	font-family: var(--font-sans);
 	-webkit-tap-highlight-color: transparent;
+	-webkit-text-size-adjust: 100%;
 	overflow: hidden;
+	touch-action: pan-x pan-y;
+}
+
+* {
+	touch-action: manipulation;
 }
 
 body {
